@@ -10,7 +10,13 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/features",
         glue = {"stepDefinition", "utility"},
-        plugin = {"pretty", "html:target/cucumber-html-report", "json:cucumber.json"}
+         plugin = { "pretty", "json:target/cucumber-reports/Cucumber.json",
+                "junit:target/cucumber-reports/Cucumber.xml",
+                "html:target/cucumber-reports/Cucumber.html"},
+        monochrome = true,
+        stepNotifications = true,
+        publish = true,
+        snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 
 public class TestRunner {
